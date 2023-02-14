@@ -1,5 +1,6 @@
 export function Word() {
   const word = "test";
+  const guessedLetters = ['t']
   return (
     <div
       style={{
@@ -13,7 +14,7 @@ export function Word() {
     >
       {word.split("").map((letter, index) => (
         <span style={{ borderBottom: ".1em solid black" }}>
-          {letter}
+          <span style={{visibility: guessedLetters.includes(letter) ? 'visible' : 'hidden',}}>{letter}</span>
         </span>
       ))}
     </div>
