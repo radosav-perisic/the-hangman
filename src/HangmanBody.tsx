@@ -1,7 +1,17 @@
 export function HangmanBody() {
   return (
     <div style={{ position: "relative" }}>
-        <div
+      <div
+        style={{
+          position: "absolute",
+          height: "50px",
+          width: "10px",
+          background: "black",
+          top: 0,
+          right: 0,
+        }}
+      />
+      <div
         style={{
           height: "10px",
           width: "200px",
