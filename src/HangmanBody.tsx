@@ -25,11 +25,27 @@ const HANGMAN_BODY = (
   />
 );
 
+const HANGMAN_LEFT_ARM = (
+    <div
+      style={{
+        width: "100px",
+        height: "10px",
+        background: "black",
+        position: "absolute",
+        top: "140px",
+        right: '5px',
+        rotate:'-30deg',
+        transformOrigin:'right bottom'
+      }}
+    />
+  );
+
 export function HangmanBody() {
   return (
     <div style={{ position: "relative" }}>
       {HANGMAN_HEAD}
       {HANGMAN_BODY}
+      {HANGMAN_LEFT_ARM}
       <div
         style={{
           position: "absolute",
