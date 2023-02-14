@@ -54,6 +54,21 @@ const HANGMAN_LEFT_ARM = (
     />
   );
 
+  const HANGMAN_RIGHT_LEG = (
+    <div
+      style={{
+        width: "100px",
+        height: "10px",
+        background: "black",
+        position: "absolute",
+        top: "210px",
+        right: '-90px',
+        rotate:'60deg',
+        transformOrigin:'left bottom'
+      }}
+    />
+  );
+
 export function HangmanBody() {
   return (
     <div style={{ position: "relative" }}>
@@ -61,6 +76,7 @@ export function HangmanBody() {
       {HANGMAN_BODY}
       {HANGMAN_LEFT_ARM}
       {HANGMAN_RIGHT_ARM}
+      {HANGMAN_RIGHT_LEG}
       <div
         style={{
           position: "absolute",
