@@ -1,5 +1,5 @@
 export function Word() {
-    const word  = 'test'
+  const word = "test";
   return (
     <div
       style={{
@@ -10,6 +10,12 @@ export function Word() {
         textTransform: "uppercase",
         fontFamily: "monospace",
       }}
-    >{word}</div>
+    >
+      {word.split("").map((letter, index) => (
+        <span style={{ borderBottom: ".1em solid black" }}>
+          {letter}
+        </span>
+      ))}
+    </div>
   );
 }
