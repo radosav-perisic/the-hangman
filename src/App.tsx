@@ -2,13 +2,13 @@ import { useState } from "react";
 import words from "./wordsList.json";
 import { HangmanBody } from "./HangmanBody";
 import { Word } from "./Word";
-import { Input } from "./Input";
+import { Keyboard } from "./Input";
 
 function App() {
   const [wordToGuess, setWordToGuess] = useState(() => {
     return words[Math.floor(Math.random() * words.length)];
   });
-  const [guestLetters, setGuestLetters] = useState<string[]>([]);
+  const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
 
   return (
     <div
@@ -24,11 +24,11 @@ function App() {
       <div style={{ fontSize: "2rem", textAlign: "center" }}>Win Lose</div>
       <HangmanBody />
       <Word />
-      <Input />
+      <div style={{ alignSelf: "stretch" }}>
+        <Keyboard />
+      </div>
     </div>
   );
-
-  return <h3>Hello</h3>;
 }
 
 export default App;
