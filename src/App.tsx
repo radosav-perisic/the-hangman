@@ -25,7 +25,7 @@ function App() {
     >
       <div style={{ fontSize: "2rem", textAlign: "center" }}>Win Lose</div>
       <HangmanBody numberOfGuesses={incorrectLetters.length}/>
-      <Word />
+      <Word guessedLetters={guessedLetters} wordToGuess={wordToGuess}/>
       <div style={{ alignSelf: "stretch" }}>
         <Keyboard />
       </div>
