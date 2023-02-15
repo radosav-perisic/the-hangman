@@ -26,51 +26,51 @@ const HANGMAN_BODY = (
 );
 
 const HANGMAN_LEFT_ARM = (
-    <div
-      style={{
-        width: "100px",
-        height: "10px",
-        background: "black",
-        position: "absolute",
-        top: "140px",
-        right: '5px',
-        rotate:'-30deg',
-        transformOrigin:'right bottom'
-      }}
-    />
-  );
-  const HANGMAN_RIGHT_ARM = (
-    <div
-      style={{
-        width: "100px",
-        height: "10px",
-        background: "black",
-        position: "absolute",
-        top: "140px",
-        right: '-95px',
-        rotate:'30deg',
-        transformOrigin:'left bottom'
-      }}
-    />
-  );
+  <div
+    style={{
+      width: "100px",
+      height: "10px",
+      background: "black",
+      position: "absolute",
+      top: "140px",
+      right: "5px",
+      rotate: "-30deg",
+      transformOrigin: "right bottom",
+    }}
+  />
+);
+const HANGMAN_RIGHT_ARM = (
+  <div
+    style={{
+      width: "100px",
+      height: "10px",
+      background: "black",
+      position: "absolute",
+      top: "140px",
+      right: "-95px",
+      rotate: "30deg",
+      transformOrigin: "left bottom",
+    }}
+  />
+);
 
-  const HANGMAN_RIGHT_LEG = (
-    <div
-      style={{
-        width: "100px",
-        height: "10px",
-        background: "black",
-        position: "absolute",
-        top: "210px",
-        right: '-90px',
-        rotate:'60deg',
-        transformOrigin:'left bottom'
-      }}
-    />
-  );
+const HANGMAN_RIGHT_LEG = (
+  <div
+    style={{
+      width: "100px",
+      height: "10px",
+      background: "black",
+      position: "absolute",
+      top: "210px",
+      right: "-90px",
+      rotate: "60deg",
+      transformOrigin: "left bottom",
+    }}
+  />
+);
 
-  const HANGMAN_LEFT_LEG = (
-    <div
+const HANGMAN_LEFT_LEG = (
+  <div
     style={{
       width: "100px",
       height: "10px",
@@ -78,21 +78,29 @@ const HANGMAN_LEFT_ARM = (
       position: "absolute",
       top: "210px",
       right: 0,
-      rotate:'-60deg',
-      transformOrigin:'right bottom'
+      rotate: "-60deg",
+      transformOrigin: "right bottom",
     }}
   />
-  )
+);
 
-export function HangmanBody() {
+const BODY_PARTS = [
+  HANGMAN_HEAD,
+  HANGMAN_BODY,
+  HANGMAN_LEFT_ARM,
+  HANGMAN_RIGHT_ARM,
+  HANGMAN_RIGHT_LEG,
+  HANGMAN_LEFT_LEG,
+];
+
+type HangmanBodyProps = {
+  numberOfGuesses: number;
+};
+
+export function HangmanBody({ numberOfGuesses }: HangmanBodyProps) {
   return (
     <div style={{ position: "relative" }}>
-      {HANGMAN_HEAD}
-      {HANGMAN_BODY}
-      {HANGMAN_LEFT_ARM}
-      {HANGMAN_RIGHT_ARM}
-      {HANGMAN_RIGHT_LEG}
-      {HANGMAN_LEFT_LEG}
+      {BODY_PARTS.slice(0, numberOfGuesses)}
       <div
         style={{
           position: "absolute",

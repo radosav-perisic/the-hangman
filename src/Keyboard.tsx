@@ -40,7 +40,7 @@ export function Keyboard() {
     >
       {KEYBOARD_LETTERS.map((key) => {
         return (
-          <button disabled className={`${styles.btn} ${styles.inactive}`} key={key}>
+          <button className={`${styles.btn}`} key={key}>
             {key}
           </button>
         );
