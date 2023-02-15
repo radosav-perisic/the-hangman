@@ -50,12 +50,12 @@ export function Keyboard({
     >
       {KEYBOARD_LETTERS.map((key) => {
         const isInactive = activeLetters.includes(key);
-        const isActive = activeLetters.includes(key);
+        const isActive = inactiveLetters.includes(key);
         return (
           <button
             onClick={() => addGuessedLetter(key)}
             className={`${styles.btn} ${isActive ? styles.active : ""}${
-              isInactive ? styles.active : ""
+              isInactive ? styles.inactive : ""
             }`}
             disabled={isInactive || isActive}
             key={key}
