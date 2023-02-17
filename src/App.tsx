@@ -61,10 +61,14 @@ function App() {
         {isLoser && "Nice try! - Reload the page to try again"}
       </div>
       <HangmanBody numberOfGuesses={incorrectLetters.length} />
-      <Word guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
+      <Word
+        reveal={isLoser}
+        guessedLetters={guessedLetters}
+        wordToGuess={wordToGuess}
+      />
       <div style={{ alignSelf: "stretch" }}>
         <Keyboard
-        disabled={isWinner || isLoser}
+          disabled={isWinner || isLoser}
           activeLetters={guessedLetters.filter((letter) =>
             wordToGuess.includes(letter)
           )}
