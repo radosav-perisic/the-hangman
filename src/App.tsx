@@ -4,10 +4,12 @@ import { HangmanBody } from "./HangmanBody";
 import { Word } from "./Word";
 import { Keyboard } from "./Keyboard";
 
+function getWord () {
+  return words[Math.floor(Math.random() * words.length)];
+}
+
 function App() {
-  const [wordToGuess, setWordToGuess] = useState(() => {
-    return words[Math.floor(Math.random() * words.length)];
-  });
+  const [wordToGuess, setWordToGuess] = useState(getWord)
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
 
   const incorrectLetters = guessedLetters.filter(
@@ -45,6 +47,22 @@ function App() {
     };
   }, [guessedLetters]);
 
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      const key = e.key;
+
+      if (key !== 'Enter') return;
+      e.preventDefault();
+      setGuessedLetters([])
+     setWordToGuess(getWord())
+    };
+    document.addEventListener("keypress", handler);
+
+    return () => {
+      document.removeEventListener("keypress", handler);
+    };
+  }, [])
+
   return (
     <div
       style={{
@@ -57,8 +75,8 @@ function App() {
       }}
     >
       <div style={{ fontSize: "2rem", textAlign: "center" }}>
-        {isWinner && "Winner! - Reload the page to try again"}
-        {isLoser && "Nice try! - Reload the page to try again"}
+        {isWinner && "Congratulations, you won! - Restart the game by pressing Enter."}
+        {isLoser && "Nice try! - Press Enter to start a new game"}
       </div>
       <HangmanBody numberOfGuesses={incorrectLetters.length} />
       <Word
