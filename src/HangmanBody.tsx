@@ -19,7 +19,7 @@ const HANGMAN_BODY = (
       height: "100px",
       background: "black",
       position: "absolute",
-      top: "120px",
+      top: "118px",
       right: 0,
     }}
   />
